@@ -26,9 +26,6 @@ class Artist
 
   def save
     @@all.push(self) unless @@all.include?(self)
-    # if @@all.include?(self) == false
-		# 	@@all << self
-  	# end
   end
 
   def self.find_or_create_by_name(name)
