@@ -28,28 +28,16 @@ class Artist
     @@all.push(self) unless @@all.include?(self)
   end
 
-  # def self.find_or_create_by_name(name)
-  #   artist = Artist.all.find {|artist| artist.name == name}
-  #   if artist == nil
-  #     artist = Artist.new(name)
-  #     artist.save
-  #     artist
-  #   end
-  #   artist
-  # end
-
   def self.find_or_create_by_name(name)
-    @@all.collect do |artist_instance|
-      if artist_instance.name.nil?
-        artist = Artist.new(name)
-        artist.save
-        return artist
-      else
-        #binding.pry
-        return artist_instance
-      end
+    artist = Artist.all.find {|artist| artist.name == name}
+    if artist == nil
+      artist = Artist.new(name)
+      artist.save
+      artist
     end
+    artist
   end
+
 
   def print_songs
     @songs.each {|song| puts song.name }
