@@ -13,6 +13,6 @@ class Song
     song.artist = Artist.find_or_create_by_name(split_filename[0])
     song.artist.add_song(song)
     song
-    #binding.pry
+    binding.pry
   end
 end
